@@ -1,20 +1,19 @@
 class Owner
 
-	def name
-		name = 'Foobar Kadigan'
-	end
+	attr_accessor :name,  :birthdate
 
-	def birthdate
-		birthdate = Date.new(1990,12,22)
+	def initialize(name="Sam", birthdate=Date.new(2000,1,1))
+		@name = name
+		@birthdate = birthdate
 	end
 
 	def countdown
 		today = Date.today
 		birthday = Date.new(today.year, birthdate.month, birthdate.day)
 		if birthday > today
-			countdown = (birthday - today).to_i
+			cd = (birthday - today).to_i
 		else
-			countdown = (birthday.next_year-today).to_i
+			cd = (birthday.next_year-today).to_i
 		end
 	end
 
